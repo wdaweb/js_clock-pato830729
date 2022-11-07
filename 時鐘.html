@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+      background: black;
+      background-image: url(./images/background.jpg);
+    }
+
+    #box {
+      position: relative;
+    }
+
+    #chain {
+      background: url(./images/chain.png);
+      position: absolute;
+      width: 100px;
+      height: 382px;
+      top: -60px;
+      left: 50%;
+      transform: translate(-50%, 0);
+    }
+
+    #clock {
+      background: url(./images/clock.png);
+      width: 350px;
+      height: 350px;
+      margin: auto;
+      position: relative;
+      border-radius: 50%;
+      top: calc(50vh - 150px);
+    }
+
+    #middle img {
+      width: 15px;
+      height: 15px;
+      /* background: lawngreen; */
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: -2;
+    }
+
+    #hour {
+      width: 83px;
+      height: 13px;
+      background-image: url(./images/hourhand.png);
+      background-repeat: no-repeat;
+      background-size: cover;
+      position: absolute;
+      top: calc(50% - 5px);
+      left: calc(50% - 6px);
+      transform-origin: 4% 50%;
+      filter: drop-shadow(0px 5px 3px rgba(0, 0, 0, 0.7));
+      z-index: -3;
+    }
+
+    #minute {
+      width: 119px;
+      height: 13px;
+      background-image: url(./images/minutehand.png);
+      background-repeat: no-repeat;
+      background-size: cover;
+      position: absolute;
+      top: calc(50% - 5px);
+      left: calc(50% - 6px);
+      transform-origin: 4% 50%;
+      filter: drop-shadow(0px 5px 3px rgba(0, 0, 0, 0.7));
+      z-index: -4;
+    }
+
+    #second {
+      width: 130px;
+      height: 11px;
+      background-image: url(./images/secondHand.png);
+      background-repeat: no-repeat;
+      background-size: cover;
+      position: absolute;
+      top: calc(50% - 5px);
+      left: calc(50% - 6px);
+      transform-origin: 4% 50%;
+      filter: drop-shadow(0px 5px 3px rgba(0, 0, 0, 0.7));
+    }
+
+    #gear01 img {
+      position: absolute;
+      top: 50px;
+      left: 20px;
+      width: 200px;
+      z-index: -30;
+      animation: rotation 20s infinite linear;
+      filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, 0.5))
+    }
+
+    #gear02 img {
+      position: absolute;
+      top: 45px;
+      left: 205px;
+      width: 120px;
+      z-index: -30;
+      animation: rotation2 20s infinite linear;
+      filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, 0.5))
+    }
+
+    #gear03 img {
+      position: absolute;
+      top: 160px;
+      left: 205px;
+      width: 120px;
+      z-index: -30;
+      animation: rotation2 20s infinite linear;
+      filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, 0.5))
+    }
+
+    #gear04 img {
+      position: absolute;
+      top: 230px;
+      left: 135px;
+      width: 90px;
+      z-index: -30;
+      animation: rotation2 20s infinite linear;
+      filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, 0.5))
+    }
+
+    #gear05 img {
+      position: absolute;
+      top: 140px;
+      left: 40px;
+      width: 200px;
+      z-index: -20;
+      animation: rotation 20s infinite linear;
+      filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, 0.5))
+    }
+
+    #gear06 img {
+      position: absolute;
+      top: 0px;
+      left: 100px;
+      width: 150px;
+      z-index: -20;
+      animation: rotation2 20s infinite linear;
+      filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, 0.5))
+    }
+
+    #gear07 img {
+      position: absolute;
+      top: 100px;
+      left: 218px;
+      width: 130px;
+      z-index: -20;
+      animation: rotation2 20s infinite linear;
+      filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, 0.5))
+    }
+
+    #gear08 img {
+      position: absolute;
+      top: 195px;
+      left: 180px;
+      width: 123px;
+      z-index: -10;
+      animation: rotation2 20s infinite linear;
+      filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, 0.5));
+    }
+
+    #gear09 img {
+      position: absolute;
+      top: 229px;
+      left: 72px;
+      width: 95px;
+      z-index: -10;
+      animation: rotation 20s infinite linear;
+      filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, 0.5));
+    }
+
+    #gear10 img {
+      position: absolute;
+      top: 4px;
+      left: 140px;
+      width: 95px;
+      z-index: -10;
+      animation: rotation 20s infinite linear;
+      filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, 0.5));
+    }
+
+    #gear11 img {
+      position: absolute;
+      top: 93px;
+      left: 84px;
+      width: 95px;
+      z-index: -10;
+      animation: rotation 20s infinite linear;
+      filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, 0.5));
+    }
+
+    @keyframes rotation {
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(359deg);
+      }
+    }
+
+    @keyframes rotation2 {
+      from {
+        transform: rotate(359deg);
+      }
+
+      to {
+        transform: rotate(0deg);
+      }
+    }
+
+    #gearblack {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 300px;
+      height: 300px;
+      background-image: linear-gradient(rgba(0, 0, 0, 0.8), transparent);
+      border-radius: 50%;
+      z-index: -9;
+    }
+
+    #clockbg img {
+      position: absolute;
+      top: 45px;
+      left: 30px;
+      width: 300px;
+      z-index: -60;
+    }
+
+    #clockmiddle img {
+      position: absolute;
+      top: 46px;
+      left: 38px;
+      width: 273px;
+      z-index: -5;
+      filter: drop-shadow(0px 10px 3px rgba(0, 0, 0, 0.5));
+    }
+  </style>
+</head>
+
+<body>
+  <div id="box">
+    <div id="chain"></div>
+    <div id="clock">
+      <div id="middle"><img src="./images/dai.png"></div>
+      <div id="hour"></div>
+      <div id="minute"></div>
+      <div id="second"></div>
+      <div id="clockmiddle"><img src="./images/clockmiddle.png"></div>
+      <div id="gear01"><img src="./images/gear03.png"></div>
+      <div id="gear02"><img src="./images/gear02.png"></div>
+      <div id="gear03"><img src="./images/gear03.png"></div>
+      <div id="gear04"><img src="./images/gear04.png"></div>
+      <div id="gear05"><img src="./images/gear05.png"></div>
+      <div id="gear06"><img src="./images/gear01.png"></div>
+      <div id="gear07"><img src="./images/gear01.png"></div>
+      <div id="gear08"><img src="./images/gear04.png"></div>
+      <div id="gear09"><img src="./images/gear04.png"></div>
+      <div id="gear10"><img src="./images/gear03.png"></div>
+      <div id="gear11"><img src="./images/gear01.png"></div>
+      <div id="gearblack"></div>
+      <div id="clockbg"><img src="./images/clock_bg.png"></div>
+    </div>
+  </div>
+
+
+  <script>
+    const hour = document.getElementById('hour')
+    const minute = document.getElementById('minute')
+    const second = document.getElementById('second')
+
+    setInterval(() => {
+      const date = new Date()
+      hour.style.transform = `rotate(${date.getHours() * 30 - 90}deg)`
+      minute.style.transform = `rotate(${date.getMinutes() * 6 - 90}deg)`
+      second.style.transform = `rotate(${date.getSeconds() * 6 - 90}deg)`
+    }, 1000)
+  </script>
+</body>
+
+</html>
